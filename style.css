@@ -1,0 +1,353 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #232323;
+  --text-light:   #EEEDE9;
+  --text-dim:     #888884;
+  --text-dimmer:  #555552;
+
+  /* Project card backgrounds — from original */
+  --card-teal:    #B2CECA;   /* Regularização */
+  --card-peach:   #F2DCCB;   /* Avisaí        */
+  --card-sage:    #7A9E7E;   /* AgroVigia      */
+
+  /* Brand teal */
+  --teal-deep:    #1C4F4A;
+  --teal-mid:     #2D7066;
+  --teal-light:   #6AADA3;
+
+  /* Avisaí accent */
+  --orange-warm:  #F28B30;
+
+  /* AgroVigia accent */
+  --green-light:  #5C9660;
+
+  --radius-card:  22px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text-light);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ─── NAV ─────────────────────────────── */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 56px;
+}
+
+.nav-logo {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--teal-light);
+  opacity: .65;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13.5px;
+  letter-spacing: .025em;
+  transition: color .18s;
+}
+.nav-links a:hover { color: var(--text-light); }
+
+/* ─── HERO ────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 68px 48px 60px;
+  animation: fadeUp .55s ease both;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 22px;
+  opacity: .8;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 4.5vw, 54px);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--teal-light);
+}
+
+.hero-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 13.5px;
+  letter-spacing: .06em;
+  color: var(--text-dim);
+}
+
+.hero-rule {
+  width: 36px; height: 2px;
+  background: var(--teal-mid);
+  border-radius: 2px;
+  margin: 34px auto 0;
+}
+
+/* ─── SECTION WRAPPER ─────────────────── */
+.projects-wrap {
+  padding: 8px 44px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ─── PROJECT CARD (shared) ───────────── */
+.pcard {
+  border-radius: var(--radius-card);
+  padding: 48px 52px;
+  display: grid;
+  grid-template-columns: 1fr 1.65fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* accent left bar */
+.pcard::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  border-radius: var(--radius-card) 0 0 var(--radius-card);
+}
+
+.pcard--teal  { background: var(--card-teal); }
+.pcard--teal::before  { background: linear-gradient(180deg, var(--teal-deep), var(--teal-light)); }
+
+.pcard--peach { background: var(--card-peach); }
+.pcard--peach::before { background: linear-gradient(180deg, #C05A10, var(--orange-warm)); }
+
+.pcard--sage  { background: var(--card-sage); }
+.pcard--sage::before  { background: linear-gradient(180deg, #1e3d21, var(--green-light)); }
+
+/* ─── CARD TEXT ───────────────────────── */
+.ct-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  opacity: .7;
+}
+
+.pcard--teal  .ct-eyebrow { color: var(--teal-deep); }
+.pcard--peach .ct-eyebrow { color: #8B3A10; }
+.pcard--sage  .ct-eyebrow { color: #e8f2e9; }
+
+.ct-title {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.pcard--teal  .ct-title { color: var(--teal-deep); }
+.pcard--peach .ct-title { color: #5A2A08; }
+.pcard--sage  .ct-title { color: #e8f2e9; }
+
+.ct-desc {
+  font-size: 13.5px;
+  line-height: 1.78;
+  margin-bottom: 14px;
+}
+
+.pcard--teal  .ct-desc { color: #2b4a45; }
+.pcard--peach .ct-desc { color: #6B3A1A; }
+.pcard--sage  .ct-desc { color: #d4e8d6; }
+
+.ct-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.ct-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .05em;
+  padding: 4px 13px;
+  border-radius: 100px;
+  border: 1px solid;
+}
+
+.pcard--teal  .ct-tag { color: var(--teal-deep); border-color: rgba(28,79,74,.25); background: rgba(28,79,74,.1); }
+.pcard--peach .ct-tag { color: #7A3010; border-color: rgba(122,48,16,.25); background: rgba(122,48,16,.1); }
+.pcard--sage  .ct-tag { color: #d4e8d6; border-color: rgba(212,232,214,.3); background: rgba(212,232,214,.1); }
+
+/* ─── MOCKUP COLUMN (shared) ──────────── */
+.cm {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.mockup-shell {
+  background: transparent;
+  border-radius: 18px;
+  overflow: visible;
+  flex-shrink: 0;
+  transition: transform .28s ease;
+}
+.mockup-shell:hover { transform: translateY(-5px); }
+
+.project-mockup {
+  display: block;
+  width: 260px;
+  height: auto;
+  border-radius: 18px;
+}
+
+/* O screenshot do AgroVigia é um dashboard (mais largo que os mockups de
+   celular). A classe já era referenciada no HTML mas não existia regra
+   para ela — adicionei uma; ajuste o valor à vontade. */
+.project-mockup--desktop {
+  width: 480px;
+  max-width: 100%;
+}
+
+/* ─── ABOUT ───────────────────────────── */
+.about-section {
+  padding: 16px 44px 80px;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 56px;
+  align-items: start;
+}
+
+.about-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 28px;
+  opacity: .75;
+}
+
+.about-body p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #bbb9b4;
+  margin-bottom: 18px;
+}
+
+.about-contacts {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-contact-link {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-size: 13px;
+  transition: color .18s;
+}
+.about-contact-link:hover { color: var(--teal-light); }
+.about-contact-link svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+
+/* Tech pills */
+.tech-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.tech-item {
+  width: 68px; height: 68px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: .04em;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+
+.tech-figma { background: linear-gradient(135deg, #1e1e1e, #2c2c2c); border: 1px solid #333; }
+.tech-css   { background: linear-gradient(135deg, #1572b6, #0d5c97); }
+.tech-html  { background: linear-gradient(135deg, #e34f26, #c0391a); }
+.tech-code  { background: linear-gradient(135deg, #8B5CF6, #6D28D9); }
+
+.tech-item svg { width: 36px; height: 36px; }
+
+/* ─── FOOTER ──────────────────────────── */
+footer {
+  border-top: 1px solid #2e2e2e;
+  padding: 24px 56px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dimmer);
+  letter-spacing: .05em;
+}
+
+/* ─── SCROLL REVEALS ──────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal { opacity: 0; }
+.reveal.visible { animation: fadeUp .55s ease forwards; }
+
+/* ─── RESPONSIVE ──────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  .projects-wrap { padding: 8px 20px 56px; }
+  .about-section { padding: 12px 20px 56px; }
+
+  .pcard {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 28px;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .tech-grid {
+    flex-direction: row;
+    align-items: center;
+  }
+}
