@@ -40,7 +40,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 56px;
+  padding: clamp(16px, 5vw, 28px) clamp(16px, 7vw, 56px);
 }
 
 .nav-logo {
@@ -48,37 +48,39 @@ nav {
   border-radius: 50%;
   background: var(--teal-light);
   opacity: .65;
+  flex-shrink: 0;
 }
 
 .nav-links {
   display: flex;
-  gap: 36px;
+  gap: clamp(16px, 4vw, 36px);
   list-style: none;
 }
 
 .nav-links a {
   color: var(--text-dim);
   text-decoration: none;
-  font-size: 13.5px;
+  font-size: clamp(11px, 2.5vw, 13.5px);
   letter-spacing: .025em;
   transition: color .18s;
+  white-space: nowrap;
 }
 .nav-links a:hover { color: var(--text-light); }
 
 /* ─── HERO ────────────────────────────── */
 .hero {
   text-align: center;
-  padding: 68px 48px 60px;
+  padding: clamp(40px, 8vw, 68px) clamp(16px, 6vw, 48px) clamp(40px, 8vw, 60px);
   animation: fadeUp .55s ease both;
 }
 
 .hero-eyebrow {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: clamp(9px, 2vw, 11px);
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--teal-light);
-  margin-bottom: 22px;
+  margin-bottom: clamp(14px, 3vw, 22px);
   opacity: .8;
 }
 
@@ -97,7 +99,7 @@ nav {
 
 .hero-role {
   font-family: 'DM Mono', monospace;
-  font-size: 13.5px;
+  font-size: clamp(11px, 2.5vw, 13.5px);
   letter-spacing: .06em;
   color: var(--text-dim);
 }
@@ -111,19 +113,19 @@ nav {
 
 /* ─── SECTION WRAPPER ─────────────────── */
 .projects-wrap {
-  padding: 8px 44px 72px;
+  padding: 8px clamp(16px, 6vw, 44px) clamp(48px, 10vw, 72px);
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: clamp(16px, 4vw, 28px);
 }
 
 /* ─── PROJECT CARD (shared) ───────────── */
 .pcard {
   border-radius: var(--radius-card);
-  padding: 48px 52px;
+  padding: clamp(24px, 6vw, 48px) clamp(20px, 5vw, 52px);
   display: grid;
   grid-template-columns: 1fr 1.65fr;
-  gap: 48px;
+  gap: clamp(24px, 5vw, 48px);
   align-items: center;
   position: relative;
   overflow: hidden;
@@ -162,7 +164,7 @@ nav {
 .pcard--sage  .ct-eyebrow { color: #e8f2e9; }
 
 .ct-title {
-  font-size: 27px;
+  font-size: clamp(20px, 4vw, 27px);
   font-weight: 700;
   letter-spacing: -.025em;
   line-height: 1.15;
@@ -174,9 +176,9 @@ nav {
 .pcard--sage  .ct-title { color: #e8f2e9; }
 
 .ct-desc {
-  font-size: 13.5px;
+  font-size: clamp(12px, 2.5vw, 13.5px);
   line-height: 1.78;
-  margin-bottom: 14px;
+  margin-bottom: clamp(10px, 2vw, 14px);
 }
 
 .pcard--teal  .ct-desc { color: #2b4a45; }
@@ -186,15 +188,15 @@ nav {
 .ct-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 22px;
+  gap: clamp(5px, 1.5vw, 7px);
+  margin-top: clamp(14px, 3vw, 22px);
 }
 
 .ct-tag {
   font-family: 'DM Mono', monospace;
-  font-size: 10.5px;
+  font-size: clamp(9px, 2vw, 10.5px);
   letter-spacing: .05em;
-  padding: 4px 13px;
+  padding: clamp(3px, 0.5vw, 4px) clamp(10px, 2vw, 13px);
   border-radius: 100px;
   border: 1px solid;
 }
@@ -222,28 +224,27 @@ nav {
 
 .project-mockup {
   display: block;
-  width: 260px;
+  width: 100%;
+  max-width: 260px;
   height: auto;
   border-radius: 18px;
 }
 
-/* O screenshot do AgroVigia é um dashboard (mais largo que os mockups de
-   celular). A classe já era referenciada no HTML mas não existia regra
-   para ela — adicionei uma; ajuste o valor à vontade. */
 .project-mockup--desktop {
-  width: 480px;
   max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
 /* ─── ABOUT ───────────────────────────── */
 .about-section {
-  padding: 16px 44px 80px;
+  padding: clamp(12px, 4vw, 16px) clamp(16px, 6vw, 44px) clamp(48px, 10vw, 80px);
 }
 
 .about-inner {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 56px;
+  gap: clamp(28px, 6vw, 56px);
   align-items: start;
 }
 
@@ -258,24 +259,24 @@ nav {
 }
 
 .about-body p {
-  font-size: 14px;
+  font-size: clamp(13px, 2.5vw, 14px);
   line-height: 1.8;
   color: #bbb9b4;
-  margin-bottom: 18px;
+  margin-bottom: clamp(12px, 2vw, 18px);
 }
 
 .about-contacts {
-  margin-top: 32px;
+  margin-top: clamp(20px, 4vw, 32px);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: clamp(8px, 2vw, 10px);
 }
 
 .about-contact-link {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: clamp(8px, 2vw, 10px);
   text-decoration: none;
   color: var(--text-dim);
-  font-size: 13px;
+  font-size: clamp(12px, 2.5vw, 13px);
   transition: color .18s;
 }
 .about-contact-link:hover { color: var(--teal-light); }
@@ -285,38 +286,44 @@ nav {
 .skills-panel {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: clamp(10px, 2vw, 14px);
 }
 
 .skills-label {
   font-family: 'DM Mono', monospace;
-  font-size: 10.5px;
+  font-size: clamp(9px, 2vw, 10.5px);
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--teal-light);
   opacity: .7;
 }
 
-.skills-label--second { margin-top: 8px; }
+.skills-label--second { margin-top: clamp(6px, 1vw, 8px); }
 
 .tech-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: clamp(10px, 3vw, 14px);
 }
 
 .tech-item-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: clamp(5px, 1vw, 7px);
 }
 
 .tech-item {
-  width: 56px; height: 56px;
+  width: clamp(48px, 12vw, 56px);
+  height: clamp(48px, 12vw, 56px);
   border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  transition: transform .2s ease;
+}
+
+.tech-item:hover {
+  transform: scale(1.05);
 }
 
 .tech-figma { background: linear-gradient(135deg, #1e1e1e, #2c2c2c); border: 1px solid #333; }
@@ -324,42 +331,49 @@ nav {
 .tech-html  { background: linear-gradient(135deg, #e34f26, #c0391a); }
 .tech-code  { background: linear-gradient(135deg, #8B5CF6, #6D28D9); }
 
-.tech-item svg { width: 28px; height: 28px; }
+.tech-item svg { width: clamp(22px, 6vw, 28px); height: clamp(22px, 6vw, 28px); }
 
 .tech-item-label {
-  font-size: 9.5px;
+  font-size: clamp(8px, 2vw, 9.5px);
   color: var(--text-dim);
   letter-spacing: .02em;
+  text-align: center;
 }
 
 .skill-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: clamp(6px, 1.5vw, 8px);
 }
 
 .skill-pill {
   font-family: 'DM Mono', monospace;
-  font-size: 10.5px;
+  font-size: clamp(9px, 2vw, 10.5px);
   letter-spacing: .03em;
   color: var(--teal-light);
   border: 1px solid rgba(106,173,163,.3);
   background: rgba(106,173,163,.08);
-  padding: 6px 13px;
+  padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 13px);
   border-radius: 100px;
+  transition: all .2s ease;
+}
+
+.skill-pill:hover {
+  border-color: rgba(106,173,163,.6);
+  background: rgba(106,173,163,.15);
 }
 
 /* ─── FOOTER ──────────────────────────── */
 footer {
   border-top: 1px solid #2e2e2e;
-  padding: 24px 56px;
+  padding: clamp(16px, 4vw, 24px) clamp(16px, 6vw, 56px);
   display: flex;
   justify-content: center;
 }
 
 .footer-copy {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: clamp(9px, 2vw, 11px);
   color: var(--text-dimmer);
   letter-spacing: .05em;
 }
@@ -374,19 +388,117 @@ footer {
 .reveal.visible { animation: fadeUp .55s ease forwards; }
 
 /* ─── RESPONSIVE ──────────────────────── */
-@media (max-width: 900px) {
-  nav { padding: 20px 24px; }
-  .projects-wrap { padding: 8px 20px 56px; }
-  .about-section { padding: 12px 20px 56px; }
 
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
   .pcard {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 32px 28px;
+    gap: clamp(20px, 5vw, 32px);
+    padding: clamp(20px, 5vw, 32px);
   }
+  
+  .cm {
+    flex-wrap: wrap;
+    gap: clamp(12px, 3vw, 16px);
+  }
+  
+  .project-mockup {
+    max-width: 240px;
+  }
+}
 
+/* Mobile grande (480px - 768px) */
+@media (max-width: 768px) {
   .about-inner {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: clamp(20px, 5vw, 36px);
+  }
+  
+  .tech-grid {
+    justify-content: flex-start;
+    gap: clamp(10px, 3vw, 14px);
+  }
+  
+  .project-mockup {
+    max-width: 200px;
+  }
+  
+  .project-mockup--desktop {
+    max-width: 100%;
+  }
+}
+
+/* Mobile pequeno (<480px) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 32px 16px 32px;
+  }
+  
+  .hero h1 {
+    font-size: clamp(24px, 8vw, 34px);
+  }
+  
+  .pcard {
+    border-radius: 16px;
+    padding: clamp(16px, 4vw, 24px);
+  }
+  
+  .projects-wrap {
+    gap: clamp(12px, 3vw, 16px);
+  }
+  
+  .ct-tags {
+    gap: 6px;
+  }
+  
+  .ct-tag {
+    font-size: 9px;
+    padding: 3px 10px;
+  }
+  
+  .ct-desc {
+    font-size: 13px;
+  }
+  
+  .about-body p {
+    font-size: 13px;
+  }
+  
+  .about-contact-link {
+    font-size: 12px;
+    gap: 8px;
+  }
+  
+  .about-contact-link svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .tech-item {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .tech-item svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .tech-item-label {
+    font-size: 8.5px;
+  }
+  
+  .skill-pill {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+  
+  .cm {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .project-mockup {
+    max-width: 160px;
   }
 }
