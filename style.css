@@ -292,6 +292,71 @@ a { color: inherit; }
 }
 .browser i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
 
+/* ─── Como eu trabalho ──────────────────── */
+.process { padding-bottom: var(--space-section); border-top: 1px solid var(--ink); padding-top: 16px; }
+.process .section-title { padding-bottom: 0; }
+
+.process-lead {
+  font-family: var(--serif);
+  font-weight: 340;
+  font-size: clamp(30px, 3.8vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'opsz' 144, 'SOFT' 60;
+  max-width: 20ch;
+  margin-block: clamp(28px, 4vw, 48px) clamp(48px, 6vw, 80px);
+  text-wrap: balance;
+}
+
+.process-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  --step-gap: clamp(20px, 2.5vw, 36px);
+  gap: var(--step-gap);
+}
+.process-steps li { position: relative; }
+
+/* a linha que liga cada etapa à próxima */
+.process-steps li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 28px; left: 64px; right: calc(-1 * var(--step-gap) + 8px);
+  height: 1.5px;
+  background: var(--line);
+}
+
+.step-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--violet);
+  color: var(--violet);
+  display: grid; place-items: center;
+  margin-bottom: 24px;
+}
+.process-steps li:first-child .step-icon { background: var(--violet); color: var(--paper); }
+.step-icon svg {
+  width: 26px; height: 26px;
+  fill: none; stroke: currentColor;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.process-steps h3 {
+  font-family: var(--serif); font-weight: 450; font-size: 22px; line-height: 1.2;
+  font-variation-settings: 'opsz' 24, 'SOFT' 50;
+  margin-bottom: 8px;
+}
+.process-steps p { color: var(--ink-soft); font-size: 16px; }
+
+.process-loop {
+  margin-top: clamp(40px, 5vw, 56px);
+  padding-left: 14px;
+  border-left: 2px solid var(--violet);
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
 /* ─── Sobre ─────────────────────────────── */
 .about { padding-bottom: var(--space-section); border-top: 1px solid var(--ink); padding-top: 16px; }
 .about .section-title { padding-bottom: 0; }
@@ -365,6 +430,15 @@ a { color: inherit; }
 
 /* ─── Responsivo ────────────────────────── */
 @media (max-width: 900px) {
+  .process-steps { grid-template-columns: 1fr; gap: 0; }
+  .process-steps li {
+    display: grid; grid-template-columns: 56px 1fr; column-gap: 20px;
+    padding-bottom: 32px;
+  }
+  .process-steps li:last-child { padding-bottom: 0; }
+  .process-steps li:not(:last-child)::after { top: 64px; bottom: 8px; left: 27px; right: auto; width: 1.5px; height: auto; }
+  .step-icon { grid-row: 1 / 3; margin-bottom: 0; }
+  .process-steps h3 { padding-top: 14px; }
   .case-head, .case-body, .case-media { grid-column: 1 / -1; }
   .case-facts {
     grid-column: 1 / -1; grid-row: auto;
