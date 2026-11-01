@@ -14,6 +14,12 @@ Sistema desenvolvido para facilitar processos de regularização fundiária, cen
 ### Avisaí
 Plataforma voltada para a comunicação entre cidadãos e prefeituras, permitindo o registro e acompanhamento de problemas urbanos.
 
+### CVF Imagem
+Sistema de laudos de ultrassom para clínicas (estudo de caso em preparação).
+
+### Media Stance
+Produto que classifica o posicionamento de comentários em contas de parlamentares, com apoio de um modelo de linguagem.
+
 ### AgroVigia
 Plataforma de monitoramento agrícola baseada na análise de imagens de satélite para auxiliar produtores na tomada de decisões.
 
@@ -21,6 +27,11 @@ Plataforma de monitoramento agrícola baseada na análise de imagens de satélit
 
 - HTML5
 - CSS3
-- JavaScript
 - Figma
+
+## Identidade visual
+
+- Cores: papel `#F4F1EA`, tinta `#1A1A2E`, violeta `#5B3DF5`
+- Tipografia: Fraunces (títulos) e Inter (texto)
+- Marca: selo violeta com o monograma *ka*
 
