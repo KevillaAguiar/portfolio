@@ -186,6 +186,29 @@ a { color: inherit; }
 .index-list a:hover { color: var(--violet); padding-left: 12px; }
 .index-list a:hover .i-sector, .index-list a:hover .i-year { color: var(--violet); }
 
+/* Selo de status (projeto em andamento) */
+.status {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 500; letter-spacing: 0;
+  line-height: 1;
+  color: var(--violet);
+  border: 1.5px solid currentColor;
+  border-radius: 100px;
+  padding: 6px 11px 6px 22px;
+  margin-left: 10px;
+  position: relative;
+  transform: translateY(-4px);
+}
+.status::before {
+  content: '';
+  position: absolute; left: 10px; top: 50%;
+  width: 6px; height: 6px; margin-top: -3px;
+  border-radius: 50%; background: currentColor;
+}
+.status--case { margin: 0 0 20px; transform: none; }
+
 /* ─── Estudos de caso ───────────────────── */
 .case {
   display: grid;
